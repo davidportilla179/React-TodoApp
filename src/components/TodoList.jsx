@@ -20,7 +20,6 @@ class TodoList extends React.Component {
             return <Todo title={task.title} key={index} />
           })
         }
-
       </div>
     )
   }
