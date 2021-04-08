@@ -8,23 +8,25 @@ class TodoList extends React.Component {
   }
 
   handleClick = () => {
-    console.log('si jala xD, valor de done: ' + String(this.state.done));
     this.setState({
       done: !this.state.done
     })
+    console.log('si jala xD, valor de done: ' + String(this.state.done));
   }
   render() {
     return (
       <div className="list-wrapper">
         <Todo 
-          done={true}
+          done={this.state.done}
           handleClick={this.handleClick}/>
         <Todo 
+          done={this.state.done}
           handleClick={this.handleClick}/>
         <Todo 
-          done={true}
+          done={this.state.done}
           handleClick={this.handleClick}/>
         <Todo
+          done={this.state.done}
           handleClick={this.handleClick}/>
       </div>
     )

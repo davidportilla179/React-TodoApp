@@ -10,7 +10,7 @@ class Todo extends React.Component {
           defaultChecked={this.props.done}
           onChange={this.props.handleClick}
       />
-      <p className={`${this.props.done ? 'done' : 'undone'}`}>Tarea</p>
+      <p className={`${this.props.done ? 'done' : ''}`}>Tarea</p>
       <div className="buttons">
         <button className="delete">
           {'\u292b'}
