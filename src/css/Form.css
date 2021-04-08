@@ -1,0 +1,23 @@
+.form-input, .form-button {
+  padding: 10px 15px;
+  margin: 10px 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(100, 100, 100);
+  font-size: 20px;
+}
+
+.form-button {
+    background-color: rgb(50, 205, 220);
+    border-color: rgb(50, 205, 220);
+    color: rgb(255, 255, 255);
+    transition: all 0.3s ease;
+}
+.form-button:hover, .form-button:active, .form-button:focus {
+    background-color: rgb(0, 160, 175);
+    border-color: rgb(0, 160, 175);
+}
+.form-button:disabled {
+    background-color: rgb(200, 200, 200);
+    border-color: rgb(155, 155, 155);
+    color: rgb(155, 155, 155);
+}
