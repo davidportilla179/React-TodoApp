@@ -6,11 +6,10 @@ class Todo extends React.Component {
   render() {
     return(
     <div className="list-item">
-    {/* {String(this.props.toggleDone)} */}
       <Checkmark done={this.props.todo.done} toggleDone={this.props.toggleDone} index={this.props.index} />
       <p className={`${this.props.todo.done ? 'done' : ''}`}>{this.props.todo.title}</p>
       <div className="buttons">
-        <button className="delete">
+        <button className="delete" onClick={(e) => this.props.deleteTodo(e, this.props.index)}>
           {'\u292b'}
         </button>
       </div>

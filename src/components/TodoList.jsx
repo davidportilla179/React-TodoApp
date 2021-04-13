@@ -9,7 +9,7 @@ class TodoList extends React.Component {
       <div className="list-wrapper">
         {
           this.props.todos.map((todo,index) => {
-            return <Todo todo={todo} toggleDone={this.props.toggleDone} index={index} key={index} />
+            return <Todo todo={todo} toggleDone={this.props.toggleDone} deleteTodo={this.props.deleteTodo} index={index} key={index} />
           })
         }
       </div>

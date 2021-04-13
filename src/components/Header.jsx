@@ -2,10 +2,10 @@ import React from "react";
 import Form from './Form';
 import '../css/Header.css';
 
-const Header = () => (
+const Header = (props) => (
   <div className="card-header">
-    <h1 className="card-header-title header">Hay 6 tareas</h1>
-    <Form/>
+    <h1 className="card-header-title header">Hay {props.todosTotal} tareas</h1>
+    <Form updateTodo={props.updateTodo} />
   </div>
 );
 
