@@ -7,7 +7,7 @@ class App extends React.Component{
 
   state = {
     todos: [
-      {title: 'Tarea 1', done: true},
+      {title: 'Tarea 1', done: false},
       {title: 'Tarea 2', done: false},
       {title: 'Tarea 3', done: false},
       {title: 'Tarea 4', done: false},
@@ -42,7 +42,7 @@ class App extends React.Component{
     return (
       <div className="wrapper">
         <div className="card-frame">
-          <Header todosTotal={this.state.todos.length} updateTodo={this.updateTodo}/>
+          <Header todos={this.state.todos} updateTodo={this.updateTodo}/>
           <TodoList todos={this.state.todos} toggleDone={this.toggleDone} deleteTodo={this.deleteTodo} />
         </div>
       </div>
