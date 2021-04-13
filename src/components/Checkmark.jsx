@@ -6,7 +6,7 @@ const Checkmark = (props) => {
       <input type="checkbox"
           className="ok"
           defaultChecked={props.done}
-          onChange={props.handleClick}
+          onClick={(e) => props.toggleDone(e, props.index)}
       />
     </>
   )
