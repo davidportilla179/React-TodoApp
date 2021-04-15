@@ -11,7 +11,7 @@ const App = () => {
     {title: 'Tarea 3', done: false},
     {title: 'Tarea 4', done: false},
   ]);
-  
+  const [show, setShow] = useState(false);
 
   const toggleDone = (event, index) => {
     const todosInList = [...todos];
@@ -40,8 +40,8 @@ const App = () => {
   return (
     <div className="wrapper">
       <div className="card-frame">
-        <Header todos={todos} updateTodo={updateTodo} />
-        <TodoList todos={todos} toggleDone={toggleDone} deleteTodo={deleteTodo} />
+        <Header todos={todos} updateTodo={updateTodo} show={show} handleHide={setShow} />
+        <TodoList todos={todos} toggleDone={toggleDone} deleteTodo={deleteTodo} show={show} />
       </div>
     </div>
   );
