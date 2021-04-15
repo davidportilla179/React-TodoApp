@@ -1,53 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../css/App.css';
 import Header from './Header';
 import TodoList from './TodoList';
 
-class App extends React.Component{
+const App = () => {
 
-  state = {
-    todos: [
-      {title: 'Tarea 1', done: false},
-      {title: 'Tarea 2', done: false},
-      {title: 'Tarea 3', done: false},
-      {title: 'Tarea 4', done: false},
-    ]
+  const [todos,setTodos] = useState([
+    {title: 'Tarea 1', done: false},
+    {title: 'Tarea 2', done: false},
+    {title: 'Tarea 3', done: false},
+    {title: 'Tarea 4', done: false},
+  ]);
+  
+
+  const toggleDone = (event, index) => {
+    const todosInList = [...todos];
+    todosInList[index].done = !todosInList[index].done;
+    setTodos(todosInList);
   };
 
-  toggleDone = (event, index) => {
-    const todos = [...this.state.todos];
-    todos[index].done = !todos[index].done;
-    this.setState({ todos:todos });
-  };
-
-  deleteTodo = (event, index) => {
-    const todos = [...this.state.todos];
-    todos.splice(index,1);
-    this.setState({ todos:todos });
+  const deleteTodo = (event, index) => {
+    const todosInList = [...todos];
+    todosInList.splice(index,1);
+    setTodos(todosInList);
   }
 
-  updateTodo = (event, todo) => {
-    const todos = [...this.state.todos];
-    const repeatTitle = todos.filter(todoInList => todoInList.title === todo.title);
+  const updateTodo = (event, todo) => {
+    const todosInList = [...todos];
+    const repeatTitle = todosInList.filter(todoInList => todoInList.title === todo.title);
 
     if(repeatTitle.length > 0){
       alert("tarea duplicada")
     }else{
-      todos.push(todo);
-      this.setState({ todos:todos });
+      todosInList.push(todo);
+      setTodos(todosInList);
     }
   }
 
-  render(){
-    return (
-      <div className="wrapper">
-        <div className="card-frame">
-          <Header todos={this.state.todos} updateTodo={this.updateTodo}/>
-          <TodoList todos={this.state.todos} toggleDone={this.toggleDone} deleteTodo={this.deleteTodo} />
-        </div>
+  return (
+    <div className="wrapper">
+      <div className="card-frame">
+        <Header todos={todos} updateTodo={updateTodo} />
+        <TodoList todos={todos} toggleDone={toggleDone} deleteTodo={deleteTodo} />
       </div>
-    );
-  };
+    </div>
+  );
 };
 
 export default App;
